@@ -5,6 +5,7 @@
     "main": "index.js",
     "dependencies": {
         "@babel/core": "^7.11.0",
+        "@handlebars/allow-prototype-access": "^1.0.3",
         "axios": "^0.19.2",
         "babel-loader": "^8.0.6",
         "bcrypt": "^5.0.0",
@@ -19,6 +20,7 @@
         "express-handlebars": "^5.1.0",
         "express-session": "^1.17.0",
         "express-validator": "^6.4.0",
+        "handlebars": "^4.7.6",
         "html-to-text": "^5.1.1",
         "http-errors": "^1.8.0",
         "juice": "^6.0.0",
@@ -27,7 +29,7 @@
         "mysql2": "^2.1.0",
         "nodemailer": "^6.4.3",
         "nodemailer-express-handlebars": "^4.0.0",
-        "nodemon": "^2.0.2",
+        "nodemailer-smtp-transport": "^2.7.4",
         "passport": "^0.4.1",
         "passport-local": "^1.0.0",
         "sequelize": "^5.21.3",
@@ -36,18 +38,17 @@
         "sweetalert2": "^9.8.1",
         "util": "^0.12.3",
         "webpack": "^4.41.6",
-        "webpack-cli": "^3.3.11", 
-        "@babel/preset-env": "^7.11.0",
-        "@handlebars/allow-prototype-access": "^1.0.3",
-        "handlebars": "^4.7.6" 
+        "webpack-cli": "^3.3.11",
+        "@babel/preset-env": "^7.11.0"
     },
     "devDependencies": {
+        "nodemon": "^2.0.2"
     },
     "scripts": {
         "dev": "nodemon ./index",
         "desarrollo": "concurrently \"npm run dev \" \"npm run watch\" ",
         "watch": "webpack --w --mode development",
-        "start": "node index.js"
+        "start": "concurrently \"npm run dev \" \"npm run watch\" "
     },
     "keywords": [
         "Node"
