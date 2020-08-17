@@ -3,13 +3,14 @@ const nodemailer = require('nodemailer');
 const path = require('path');
 const hbs = require('nodemailer-express-handlebars');
 const util = require('util');
+//Importar las variables de entorno:
+require('dotenv').config({ path: 'variables.env' });
 
 let transport = nodemailer.createTransport({
-    host: emailConfig.host,
-    port: emailConfig.port,
+    service: "gmail",
     auth: {
-        user: emailConfig.user,
-        pass: emailConfig.pass
+        user: process.env.EMAIL, // user
+        pass: process.env.PASSWORDEMAIL // password
     }
 });
 
@@ -28,7 +29,7 @@ transport.use('compile', hbs({
 exports.enviar = async(opciones) => {
 
     const opcionesEmail = {
-        from: 'devJobs <noreply@devjobs.com',
+        from: process.env.EMAIL,
         to: opciones.usuario.email,
         subject: opciones.subject,
         template: opciones.archivo,
