@@ -48,7 +48,7 @@
         "dev": "nodemon ./index",
         "desarrollo": "concurrently \"npm run dev \" \"npm run watch\" ",
         "watch": "webpack --w --mode development",
-        "start": "concurrently \"npm run dev \" \"npm run watch\" "
+        "start": "node ./index.js"
     },
     "keywords": [
         "Node"
