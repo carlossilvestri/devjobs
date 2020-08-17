@@ -5,9 +5,11 @@ const hbs = require('nodemailer-express-handlebars');
 const util = require('util');
 //Importar las variables de entorno:
 require('dotenv').config({ path: 'variables.env' });
+var smtpTransport = require('nodemailer-smtp-transport');
 
 let transport = nodemailer.createTransport({
     service: "gmail",
+    host: 'smtp.gmail.com',
     auth: {
         user: process.env.EMAIL, // user
         pass: process.env.PASSWORDEMAIL // password
